@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyJavaProject" default="compile" basedir=".">
+    
+    <!-- Set global properties -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+
+    <!-- Create the build directory if it doesn't exist -->
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <!-- Compile Java source files -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" />
+    </target>
+
+    <!-- Create a JAR file -->
+    <target name="jar" depends="compile">
+        <jar destfile="MyJavaProject.jar" basedir="${build.dir}"/>
+    </target>
+
+    <!-- Clean build files -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+</project>
